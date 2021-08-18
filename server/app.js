@@ -7,6 +7,8 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');                        
 const path = require('path');
 const mongoose = require('mongoose');
+const EmployeeAPI = require('./routers/employee-api');
+
 
 /**
  * App configurations
@@ -21,10 +23,10 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 /**
  * Variables
  */
-const port = 3000; // server port
+const port = process.env.PORT || 3000; // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
-const conn = 'mongodb+srv://superadmin:s3cret@cluster0-lujih.mongodb.net/nodebucket?retryWrites=true&w=majority';
+const conn = 'mongodb+srv://nodebucketa337_user:9730@cluster0.io8s1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 /**
  * Database connection
@@ -42,6 +44,7 @@ mongoose.connect(conn, {
 /**
  * API(s) go here...
  */
+app.use('/api/employees', EmployeeAPI)
 
 /**
  * Create and start server
