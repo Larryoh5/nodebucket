@@ -1,0 +1,22 @@
+.signIn-container {
+    width: 40%;
+    margin: 10% auto;
+  }
+  
+  .signIn-container > mat-card-title,
+  mat-card-subtitle {
+    text-align: center;
+  }
+  
+  .msg-error {
+    margin: 10px 0px;
+    padding: 15px;
+    color: #d80065;
+    background-color: #cf9f9f;
+  }
+  
+  @media only screen and (min-width: 300px) and (max-width: 750px) {
+    .signIn-container {
+      width: 83%;
+    }
+  }

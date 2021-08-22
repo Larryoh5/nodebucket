@@ -1,0 +1,21 @@
+{
+    "empId": "1010",
+    "firstName": "Denise",
+    "lastName": "Simpson",
+    "todo": [
+      {
+        "taskId": "1",
+        "taskDescription": "Manage Business"
+      },
+      {
+        "taskId": "2",
+        "taskDescription": "Prepare for events"
+      }
+    ],
+    "done": [
+      {
+        "taskId": "3",
+        "taskDescription": "Notes on the go"
+      }
+    ]
+  } 

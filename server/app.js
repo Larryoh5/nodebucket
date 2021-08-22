@@ -1,4 +1,13 @@
 /**
+ * * Title: app.js
+ * Author: Larry Ohaka
+ * Date: 08/22/21
+ * Description: app component
+ */
+
+
+
+/**
  * Require statements
  */
 const express = require('express');
@@ -7,7 +16,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');                        
 const path = require('path');
 const mongoose = require('mongoose');
-const EmployeeAPI = require('./routers/employee-api');
+const EmployeeAPI = require('./routes/employee-api');
 
 
 /**
@@ -29,7 +38,7 @@ const port = process.env.PORT || 3000; // server port
 const conn = 'mongodb+srv://nodebucketa337_user:9730@cluster0.io8s1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
 /**
- * Database connection
+ * Call mongoose
  */
 mongoose.connect(conn, {
   promiseLibrary: require('bluebird'),
@@ -39,16 +48,17 @@ mongoose.connect(conn, {
   console.debug(`Connection to the database instance was successful`);
 }).catch(err => {
   console.log(`MongoDB Error: ${err.message}`)
-}); // end mongoose connection
+}); 
+//----------------------end mongoose connection------------------------------
 
 /**
- * API(s) go here...
+ * APIs go here...
  */
 app.use('/api/employees', EmployeeAPI)
-
+  
 /**
  * Create and start server
  */
 http.createServer(app).listen(port, function() {
   console.log(`Application started and listening on port: ${port}`)
-}); // end http create server function
+}); 
