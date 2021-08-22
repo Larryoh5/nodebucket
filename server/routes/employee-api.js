@@ -10,26 +10,27 @@
  
  const router = express.Router();
  
- // get employee by id
+ // Employee ID
  router.get("/:empId", async (req, res) => {
-   // find one employee by id using the employee model and mongoose
+   // Find employee ID
    try {
      Employee.findOne({ empId: req.params.empId }, function (err, employee) {
-       // log any errors to the console and return a 500 error to the user if the database is unable to find the employee by id or if there is an error in the database
+      
        if (err) {
          console.log(err);
          res.status(500).send({
            message: "MongoDB server error: " + err.message,
          });
        }
-       // return and log the employee object to the console if the database is able to find the employee by id
+       /* Return and log the employee object to the console if the database is able to find the employee by id */
        else {
          console.log(employee);
          res.json(employee);
        }
      });
-   } catch (e) {
-     // catch any errors and log them to the console
+   } 
+   catch (e) {
+     // Any and all errors will be logged to the console
      console.log(e);
      res.status(500).send({
        message: "Internal server error: " + e.message,

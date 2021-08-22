@@ -54,11 +54,11 @@ mongoose.connect(conn, {
 /**
  * APIs go here...
  */
-app.use('/api/employees', EmployeeAPI)
+app.use('/api/employees', EmployeeAPI);
   
 /**
  * Create and start server
  */
 http.createServer(app).listen(port, function() {
-  console.log(`Application started and listening on port: ${port}`)
+  console.log(`Application started and listening on port: ${port}`);
 }); 
