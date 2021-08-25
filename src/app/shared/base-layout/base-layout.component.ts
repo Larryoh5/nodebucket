@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-base-layout',
@@ -8,10 +10,23 @@ import { Component, OnInit } from '@angular/core';
 export class BaseLayoutComponent implements OnInit {
 
   year: number = Date.now();
-  
-  constructor() { }
+  isLoggedIn: boolean;
+
+  //Cookie service, router
+  constructor(private cookieService: CookieService, private router: Router) { 
+    //isLoggedIn constructor ------> "? true : false" = if this returns something it will return true, otherwise it will return false
+    this.isLoggedIn = this.cookieService.get('session_user')? true : false;
+  }
 
   ngOnInit(): void {
+  }
+
+
+//Signout
+  signOut(){
+    this.cookieService.deleteAll();
+    //pushes you back to the signin page
+    this.router.navigate(['/session/signin']);
   }
 
 }

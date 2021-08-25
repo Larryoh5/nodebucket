@@ -7,6 +7,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const ItemDocuments = require('./item');
 
 /**
  * Employee schema strings
@@ -15,7 +16,11 @@ const Schema = mongoose.Schema;
 let employeeSchema = new Schema ({
     empId: { type: String, unique: true },
     firstName: { type: String },
-    lastName: {type: String}
+    lastName: {type: String},
+    //Collection of item documents
+    todo: [ItemDocuments],
+    //Collection of item documents
+    done: [ItemDocuments]
 }, {collection: 'employees'});
 
 module.exports = mongoose.model('Employee', employeeSchema)

@@ -34,10 +34,10 @@ export class SigninComponent implements OnInit {
         null,
         Validators.compose([
           Validators.required,
-          Validators.pattern('^[0-9]*$'),
-        ]),
-      ],
-    });
+          Validators.pattern('^[0-9]*$')
+        ])
+      ]
+    })
   }
 
   // signin
@@ -52,7 +52,7 @@ export class SigninComponent implements OnInit {
         this.router.navigate(['/']); 
       } else {
         // Error message
-        this.error = 'Not a valid Id, please try again.'; 
+        this.error = 'The ID you entered was not valid, please try again.'; 
       }
     })
   }

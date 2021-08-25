@@ -7,24 +7,57 @@
 -->
 
 
-<div fxLayout="column">
-  
-    <div fxFlex *ngIf="error">{{ error }}</div>
-  
-    <mat-card fxFlex class="signIn-container">
-      <mat-card-title>Employee Sign In</mat-card-title>
-      <mat-card-subtitle >You must enter a valid employeeId to continue</mat-card-subtitle>
+  <div fxLayout="column">
 
-      <form [formGroup]="form" (ngSubmit)="login(); form.reset()">
+
+
+    <mat-card fxFlex class="signin-container">
+      <mat-card-title class="signin-title">
+        Employee Sign-In Page
+      </mat-card-title>
+
+      <br/>
+      <mat-card-subtitle class="singin-subtitle">
+        You must enter a valid employee ID to continue
+      </mat-card-subtitle>
+
+      <mat-card-content>
+        <mat-card class="mat-elevation-z0" fxLayout='column' fxLayoutGap="10px">
+
+
+
+
+
+      <!-- Signin form-->
+      <form [formGroup]="form" (ngSubmit)="login(); form.reset();">
         <mat-card-content>
-          <mat-form-field fxFlex appearance="fill">
-            <input type="text" matInput [formControl]="form.controls['empId']" placeholder="Employee ID"/>
+          <mat-form-field>
+            <input matInput [formControl]="form.controls['empId']" placeholder= "Employee ID"/>
           </mat-form-field>
+          <!--Error because no value was entered-->
+          <mat-error *ngIf="form.controls['empId'].hasError('required') && form.controls['empId'].touched">
+Employee Id is a required field
+          </mat-error>
+ <!--numerical Error-->
+          <mat-error *ngIf="form.controls['empId'].hasError('pattern') && form.controls['empId'].touched">Enter a numerical value</mat-error>
+
+          <!--Error-->
+          <mat-error *ngIf="error">
+            {{error}}
+          </mat-error>
         </mat-card-content>
+
+
+
+
+
+        <!--Submit button-->
         <mat-card-actions>
-         
-          <button type="submit" fxFlex mat-raised-button color="primary" [disabled]="!form.valid"> Submit </button>
+          <button type="submit" fxFlex mat-raised-button color="primary" [disabled]="!form.valid">Sign-In</button>
         </mat-card-actions>
       </form>
+        </mat-card>
+      </mat-card-content>
+
     </mat-card>
   </div>
