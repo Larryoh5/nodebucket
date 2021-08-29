@@ -13,7 +13,7 @@ const Schema = mongoose.Schema;
 
 let itemSchema = new Schema ({
     //Field
-    test: { type:String }
+    text: { type:String },
 });
 
 //export schema--return it

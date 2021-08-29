@@ -61,18 +61,18 @@
         }
         //if no error return
         else{
-          console.log(updatedEmployee);
-          res.json(updatedEmployee);
+          console.log(employee);
+          res.json(employee);
           }
-     })
+     });
    }
    catch(e){
      console.log(e);
      res.status(500).send({
        'message': "internal server error" + e.message
-     })
+     });
    }
- })
+ });
 
 
  
@@ -83,12 +83,12 @@
  router.post('/:empId/tasks', async(req, res) =>{
    try{
      //returns the employee record
-     Employee.findOne({'empId': req.params.empId}, function(err,employee){
+     Employee.findOne({ empId : req.params.empId}, function(err,employee){
        if (err){
          console.log(err);
          res.status(501).send({
-           'message': 'MongoDB Expectation:' + err.message
-         })
+           message: 'MongoDB Expectation:' + err.message
+         });
        }
        else{
          console.log(employee);
@@ -103,22 +103,22 @@
            if (err){
              console.log(err);
              res.status(501).send({
-               'message': 'MongoDB Expectation:' + err.message
-             })
+               message: 'MongoDB Expectation:' + err.message
+             });
            }
            //Updated record will be returned to Angular
            else{
              console.log(updatedEmployee);
-             res.json(updatedEmployee);
+             
            }
-         })
+         });
        }
-     })
+     });
    }
    catch(e){
     console.log(e);
     res.status(500).send({
-      'message': "internal server error" + e.message
+      message: "internal server error" + e.message
     })
   }
 })
