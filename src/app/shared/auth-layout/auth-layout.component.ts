@@ -1,3 +1,10 @@
+/**
+ * * Title: Auth-layout.ts
+ * Author: Larry Ohaka
+ * Date: 08/18/21
+ * Description: Navigation and Layout
+ */
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

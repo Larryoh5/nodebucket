@@ -8,7 +8,7 @@
 import { Item } from './item.interface';
 
 export interface Employee {
-    empId: String;
+    empId: string;
     todo: Item[];
     done: Item[];
 
