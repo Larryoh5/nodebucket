@@ -1,3 +1,10 @@
+/**
+ * * Title: base-layout.component.ts
+ * Author: Larry Ohaka
+ * Date: 08/18/21
+ * Description: Navigation and Layout
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService} from 'ngx-cookie-service';

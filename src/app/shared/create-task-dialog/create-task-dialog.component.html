@@ -1,0 +1,22 @@
+<!--
+ * * Title: create-task-dialog.component.html
+ * Author: Larry Ohaka
+ * Date: 08/28/21
+ * Description: signin
+ */
+-->
+
+<h2 mat-dialog-title> Add new Task item</h2>
+
+<!--Form Field-->
+<mat-dialog-content [formGroup]="taskForm">
+<mat-form-field style="width: 200px">
+    <input type="text" placeholder="Enter a task name" matInput formControlName=" text" (keydown.enter)="createTask()"/>
+</mat-form-field>
+</mat-dialog-content>
+
+<!--Return/Enter button instead of having to click submit button-->
+<mat-dialog-actions align="end">
+    <button mat-button (click)="cancel()">Click</button>
+  
+</mat-dialog-actions>
