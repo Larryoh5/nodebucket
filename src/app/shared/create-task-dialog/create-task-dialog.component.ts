@@ -23,10 +23,10 @@ export class CreateTaskDialogComponent implements OnInit {
   ngOnInit(): void {
     this.taskForm = this.fb.group({
       text: [null, Validators.compose([Validators.required])]
-    })
+    });
 
   }
-//function creatTask passes over the data from the user to home component
+//function createTask passes over the data from the user to home component
   createTask(){
     this.dialogRef.close(this.taskForm.value);
   }

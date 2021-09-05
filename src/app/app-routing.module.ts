@@ -5,8 +5,6 @@
  * Description: signin
  */
 
-
-
 import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +13,8 @@ import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component'
 import { AuthGuard } from './shared/auth.guard';
 import { SigninComponent } from './pages/signin/signin.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { AboutComponent } from './pages/about/about.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 //routes
@@ -29,11 +29,16 @@ const routes: Routes = [
        canActivate: [AuthGuard],
       },
       {
-        path: 'content',
+        path: 'contact',
         component: ContactComponent,
         canActivate: [AuthGuard],
+      },
+      {
+        path: 'about',
+        component: AboutComponent,
+        canActivate: [AuthGuard]
       }
-    ],
+    ]
   },
   {
     path: 'session',
@@ -43,8 +48,18 @@ const routes: Routes = [
         path: 'signin',
         component: SigninComponent,
       },
-    ],
+      {
+        path: 'not-found',
+        component: NotFoundComponent,
+      }
+    ]
   },
+  {
+    // Asterisk means if there isn't something thats being directed to
+    path: '**',
+    redirectTo: 'session/not-found'
+  }
+
 ];
 
 @NgModule({

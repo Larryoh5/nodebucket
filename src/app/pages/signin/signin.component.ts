@@ -44,13 +44,18 @@ export class SigninComponent implements OnInit {
   login(): void {
     const empId = this.form.controls['empId'].value;
     // get the empId from the form
-    this.http.get('/api/employees/' + empId).subscribe((res) => {
+    this.http.get('/api/employees/' + empId).subscribe(res => {
       if (res) {
-        // set the cookie
-        this.cookieService.set('session_user', empId, 1);
-        // Redirects to home page
-        this.router.navigate(['/']); 
-      } else {
+        //Access session store inside the baselayout
+        sessionStorage.setItem('name', `${res['firstName']} ${res['lastName']}`)
+           // set the cookie
+           this.cookieService.set('session_user', empId, 1);
+           // Redirects to home page
+           this.router.navigate(['/']);
+
+      }
+      
+      else {
         // Error message
         this.error = 'The ID you entered was not valid, please try again.'; 
       }
