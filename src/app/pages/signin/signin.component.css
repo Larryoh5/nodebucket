@@ -1,22 +1,26 @@
-.signIn-container {
-    width: 40%;
-    margin: 10% auto;
-  }
-  
-  .signIn-container > mat-card-title,
-  mat-card-subtitle {
-    text-align: center;
-  }
-  
-  .msg-error {
-    margin: 10px 0px;
-    padding: 15px;
-    color: #d80065;
-    background-color: #cf9f9f;
-  }
-  
-  @media only screen and (min-width: 300px) and (max-width: 750px) {
-    .signIn-container {
-      width: 83%;
-    }
-  }
+/*
+ * * Title: signin.component.html
+ * Author: Larry Ohaka
+ * Date: 08/22/21
+ * Description: signin
+*/
+
+
+.signin-container {
+  width: 48%;
+  margin: 15% auto;
+}
+ 
+
+.signin-title{
+  text-align: center;
+  font-size: 38px;
+  font-weight: lighter;
+  line-height: 55px;
+}
+
+.signin-subtitle{
+  text-align: center;
+  font-weight: lighter;
+}
+

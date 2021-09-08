@@ -18,6 +18,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './pages/signin/signin.component';
 import { CookieService } from 'ngx-cookie-service';
+import { MatMenuModule } from "@angular/material/menu";
+import { MatDialogModule} from '@angular/material/dialog'
+import { MatDividerModule } from '@angular/material/divider';
+import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
+import { ContactComponent } from './pages/contact/contact.component'
+import { DragDropModule } from "@angular/cdk/drag-drop";
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +34,10 @@ import { CookieService } from 'ngx-cookie-service';
     BaseLayoutComponent,
     AuthLayoutComponent,
     SigninComponent,
+    CreateTaskDialogComponent,
+    ContactComponent,
+    NotFoundComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +54,11 @@ import { CookieService } from 'ngx-cookie-service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatMenuModule,
+    MatDialogModule,
+    MatDividerModule,
+    DragDropModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],
